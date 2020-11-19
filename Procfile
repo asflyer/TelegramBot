@@ -1,1 +1,1 @@
-worker: java main.java
+worker: java main
