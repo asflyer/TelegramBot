@@ -1,1 +1,1 @@
-worker: java main
+web: sh target/bin/Telebot
