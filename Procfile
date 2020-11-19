@@ -1,1 +1,1 @@
-worker: java $JAVA_OPTS sh target/bin/Telebot
+worker: java main.java
