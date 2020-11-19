@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>Tetebot2</groupId>
-    <artifactId>heroku s</artifactId>
+    <artifactId>heroku</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
