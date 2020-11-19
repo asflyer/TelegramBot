@@ -1,1 +1,1 @@
-worker: sh target/bin/Tetebot2
+worker: sh target/bin/Telebot
