@@ -5,7 +5,8 @@ import org.telegram.telegrambots.TelegramBotsApi;
 import org.telegram.telegrambots.exceptions.TelegramApiRequestException;
 
 public class main {
-    public static void bot(String[] args) {
+    public static void main(String[] args) {
+
             ApiContextInitializer.init();
             TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
             try {
@@ -13,12 +14,12 @@ public class main {
             } catch (TelegramApiRequestException e) {
                 e.printStackTrace();
             }
-        /*
-        heroku login
-        git push heroku master
-        heroku ps:scale worker=1
+    /*
+    heroku login
+    git push heroku master
+    heroku ps:scale worker=1
 
-         */
+     */
 
 
     }

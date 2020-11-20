@@ -75,20 +75,11 @@ public class Bot extends TelegramLongPollingBot
 
     }
 
-    /**
-     * Метод возвращает имя бота, указанное при регистрации.
-     * @return имя бота
-     */
-
 
     public String getBotUsername() {
         return "2021Bot";
     }
 
-    /**
-     * Метод возвращает token бота для связи с сервером Telegram
-     * @return token для бота
-     */
     public String getBotToken() {
         return "1464941016:AAHixCrgM0gWZGIMn0652xGngXp3BkadQIQ";
     }
