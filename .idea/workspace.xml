@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc2597bf-9ac2-4446-91d4-70678e512f86" name="Default Changelist" comment="">
+    <list default="true" id="cc2597bf-9ac2-4446-91d4-70678e512f86" name="Default Changelist" comment="+pogoda">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bot/Weather.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bot/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bot/Bot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bot/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bot/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bot/Bot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bot/Bot.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -128,8 +131,8 @@
     </configuration>
     <list>
       <item itemvalue="Application.main" />
-      <item itemvalue="Maven.Tetebot2 []" />
       <item itemvalue="Application.main (1)" />
+      <item itemvalue="Maven.Tetebot2 []" />
     </list>
     <recent_temporary>
       <list>
@@ -212,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605856339800</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="+anek">
+      <created>1605856655890</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1605856655890</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -231,7 +241,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />
     <MESSAGE value="+anek" />
-    <option name="LAST_COMMIT_MESSAGE" value="+anek" />
+    <MESSAGE value="+pogoda" />
+    <option name="LAST_COMMIT_MESSAGE" value="+pogoda" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

@@ -1,10 +1,15 @@
 package bot;
 
-import java.io.BufferedReader;
+import java.io.*;
+import java.net.*;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
+import com.google.gson.Gson;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.util.EntityUtils;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 import org.joda.time.ReadableInstant;
@@ -13,7 +18,6 @@ import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
-
 
 
 public class Bot extends TelegramLongPollingBot
@@ -73,6 +77,58 @@ public class Bot extends TelegramLongPollingBot
             sendMsg(msg, text);
         }
 
+        if (txt.toLowerCase().equals("погода?")) {
+            String appid = "47fc3e35fc3b29d2170de3f83983baec";
+            int city_id = 536203;
+            //Найти id города
+            //http://api.openweathermap.org/data/2.5/find?q=Saint Petersburg&type=like&APPID=0fb9dfa963c57d2e6a79ec6d11e1ba53
+
+            HttpGet request = null;
+            try {
+                    String url = "http://api.openweathermap.org/data/2.5/weather?id=" + city_id + "&appid=" + appid + "&lang=ru&units=metric";
+                    HttpClient client = HttpClientBuilder.create().build();
+                    request = new HttpGet(url);
+
+                    request.addHeader("User-Agent", "Apache HTTPClient");
+                    HttpResponse response = null;
+                    try {
+                        response = client.execute(request);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                    assert response != null;
+                    HttpEntity entity = response.getEntity();
+                    String content = null;
+                    try {
+                        content = EntityUtils.toString(entity);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                        }
+
+                    Gson g = new Gson();
+                    Weather.JsonParser weatherOnStreet  = g.fromJson(content, Weather.JsonParser.class);
+                    String weatherDescription = weatherOnStreet.weather.get(0).description;
+                    int i = weatherOnStreet.weather.size();
+                    if (i>1) {
+                        while (i > 1) {
+                            weatherDescription = weatherDescription + " или " + weatherOnStreet.weather.get(i).description;
+                            i--;
+                        }
+                    }
+
+                sendMsg(msg, "Погода в городе " + weatherOnStreet.name + "\nТемпература " +  weatherOnStreet.main.temp + "°C"
+                + "\nЧувствуется как " + weatherOnStreet.main.feels_like + "°C" + "\nВлажность " + weatherOnStreet.main.humidity + "%"
+                        + "\nСкорость ветра " + weatherOnStreet.wind.speed +"м/c" + "\nНа улице " + weatherDescription);
+
+            }
+                finally {
+                if (request != null) {
+                    request.releaseConnection();
+                }
+            }
+
+        }
+
     }
 
 
@@ -83,4 +139,6 @@ public class Bot extends TelegramLongPollingBot
     public String getBotToken() {
         return "1464941016:AAHixCrgM0gWZGIMn0652xGngXp3BkadQIQ";
     }
+
 }
+
