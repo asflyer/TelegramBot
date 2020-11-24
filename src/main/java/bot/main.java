@@ -16,7 +16,7 @@ public class main {
             e.printStackTrace();
         }
 
-        String time = "T00:40:00.000"; //Время отправки ежедневного сообщения
+        String time = "T13:00:00.000"; //Время отправки ежедневного сообщения
         String chat_id = "-1001436821018"; //Новый 2021 = -1001436821018, Тестовый = -1001389593568
         new EveryDayMessage().EveryDayMessageSend(time, chat_id);
 
