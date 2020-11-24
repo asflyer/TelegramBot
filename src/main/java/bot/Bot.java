@@ -33,6 +33,19 @@ public class Bot extends TelegramLongPollingBot
 		}
 	}
 
+    public void TimeMessage(int date){
+        if (date == 300){
+            SendMessage s = new SendMessage();
+            s.setChatId("-1001389593568"); // Боту может писать не один человек, и поэтому чтобы отправить сообщение, грубо говоря нужно узнать куда его отправлять
+            s.setText("321321");
+            try { //Чтобы не крашнулась программа при вылете Exception
+                execute(s);
+            } catch (TelegramApiException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void onUpdateReceived(Update e) {
         Message msg = e.getMessage(); // Это нам понадобится
         if (msg == null) {
@@ -41,17 +54,14 @@ public class Bot extends TelegramLongPollingBot
         String txt = msg.getText();
 
         if (txt.toLowerCase().equals("а?")) {
-            DateTime date1 = new DateTime("2020-12-31T23:59:59.999");
-            ReadableInstant date2 = DateTime.now();
-            int days = Days.daysBetween(date2, date1).getDays();
-            String ending = " дней";
-            String starting = "осталось ";
-            if (String.valueOf(days).endsWith("1")){
-                ending = " день";
-                starting = "остался ";
-            }else if (String.valueOf(days).endsWith("2")||String.valueOf(days).endsWith("3")||String.valueOf(days).endsWith("4")){
-                ending = " дня";
-            }
+            int days;
+            String ending;
+            String starting;
+
+            DaysToNG daysToNG = new DaysToNG().invoke();
+            days = daysToNG.getDays();
+            ending = daysToNG.getEnding();
+            starting = daysToNG.getStarting();
             sendMsg(msg, "До Нового Года " + starting + days +  ending);
         }
 
@@ -140,5 +150,38 @@ public class Bot extends TelegramLongPollingBot
         return "1464941016:AAHixCrgM0gWZGIMn0652xGngXp3BkadQIQ";
     }
 
+
+    static class DaysToNG {
+        private int days;
+        private String ending;
+        private String starting;
+
+        int getDays() {
+            return days;
+        }
+
+        String getEnding() {
+            return ending;
+        }
+
+        String getStarting() {
+            return starting;
+        }
+
+        DaysToNG invoke() {
+            DateTime date1 = new DateTime("2020-12-31T23:59:59.999");
+            ReadableInstant date2 = DateTime.now();
+            days = Days.daysBetween(date2, date1).getDays();
+            ending = " дней";
+            starting = "осталось ";
+            if (String.valueOf(days).endsWith("1")){
+                ending = " день";
+                starting = "остался ";
+            }else if (String.valueOf(days).endsWith("2")||String.valueOf(days).endsWith("3")||String.valueOf(days).endsWith("4")){
+                ending = " дня";
+            }
+            return this;
+        }
+    }
 }
 
