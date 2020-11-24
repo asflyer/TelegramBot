@@ -21,10 +21,21 @@ public class main {
         new EveryDayMessage().EveryDayMessageSend(time, chat_id);
 
     /*
+    в хероку
     heroku login
     git push heroku master
     heroku ps:scale worker=1
+
+
+    в гитхаб
+    git push --set-upstream origin master
+
+    https://javarush.ru/groups/posts/504-sozdanie-telegram-bota-na-java-ot-idei-do-deploja?post=full#discussion
+    https://habr.com/ru/post/315264/
+    https://rieckpil.de/howto-send-telegram-bot-notifications-with-java/
      */
+
+
 
     }
 }
