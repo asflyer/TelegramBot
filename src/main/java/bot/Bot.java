@@ -36,7 +36,7 @@ public class Bot extends TelegramLongPollingBot
     public void TimeMessage(int date){
         if (date == 300){
             SendMessage s = new SendMessage();
-            s.setChatId("-1001389593568"); // Боту может писать не один человек, и поэтому чтобы отправить сообщение, грубо говоря нужно узнать куда его отправлять
+            s.setChatId("-1001389593568"); // Боту может писать не один человек, и чтобы отправить сообщение, грубо говоря нужно узнать куда его отправлять
             s.setText("321321");
             try { //Чтобы не крашнулась программа при вылете Exception
                 execute(s);
