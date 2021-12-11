@@ -33,6 +33,17 @@ public class main {
     https://javarush.ru/groups/posts/504-sozdanie-telegram-bota-na-java-ot-idei-do-deploja?post=full#discussion
     https://habr.com/ru/post/315264/
     https://rieckpil.de/howto-send-telegram-bot-notifications-with-java/
+
+
+    На новом компе
+    Устанавливаем Heroku CLI. Перезапускаем Идею
+    heroku login
+    git init
+    git add .
+    git commit -m "first commit"
+    heroku create
+    git push heroku master
+    heroku ps:scale worker=1
      */
 
 

@@ -169,7 +169,7 @@ public class Bot extends TelegramLongPollingBot
         }
 
         DaysToNG invoke() {
-            DateTime date1 = new DateTime("2020-12-31T23:59:59.999");
+            DateTime date1 = new DateTime("2021-12-31T23:59:59.999");
             ReadableInstant date2 = DateTime.now();
             days = Days.daysBetween(date2, date1).getDays();
             ending = " дней";
